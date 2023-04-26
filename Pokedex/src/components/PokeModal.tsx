@@ -20,14 +20,12 @@ function PokeModal(props:ICardProps) {
             console.log(error)
         }
         )
-    }, [])
-
-
+    }, [modal])
 
 
 
   return (
-    <div
+    <Modal 
       className="modal show"
       style={{ display: 'block', position: 'initial' }}
     >
@@ -45,7 +43,7 @@ function PokeModal(props:ICardProps) {
           <Button variant="primary">Aggiungi alla squadra</Button>
         </Modal.Footer>
       </Modal.Dialog>
-    </div>
+    </Modal>
   );
 }
 
