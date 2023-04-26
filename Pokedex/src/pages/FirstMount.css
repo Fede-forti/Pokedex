@@ -1,0 +1,42 @@
+.pokedex {
+    min-height: 40vh;
+    min-width: 40vw;
+    background-image: url("../assets/Pokédex-chiuso.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.pokedex-container {
+    display: flex;
+    justify-content: center;
+}
+
+.pokedex:hover {
+    background-image: url("../assets/Pokédex-apero.png");
+}
+
+.pokeball {
+    max-width: 20vw;
+    max-height: 20vh;
+    animation-name: rotate;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.pokeCardWrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
