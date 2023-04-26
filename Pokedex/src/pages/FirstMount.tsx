@@ -14,7 +14,7 @@ const FirstMount = () => {
     const [loader, setLoader] = React.useState(false)
     const [pokemonList, setPokemonList] = React.useState([{name: "", url: ""}])
     const [modalShow, setModalShow] = React.useState(false);
-
+    const [value, setValue] = React.useState("")
 
     function handleClick(e: React.MouseEvent<HTMLDivElement>) {
         e.preventDefault();
@@ -43,8 +43,7 @@ const FirstMount = () => {
 
     function handleShowModal(e: React.MouseEvent<HTMLDivElement>) {
       e.preventDefault();
-      const value = e.currentTarget.id;
-
+      setValue(e.currentTarget.id)
       setModalShow(true);
     }
 
@@ -55,10 +54,10 @@ const FirstMount = () => {
         { loader && <img src={pokeballIMG} alt="pokeball" className="pokeball" />}
         <div className="pokeCardWrap">
         { !pokedex && !loader && pokemonList.map((pokemon, i) => {
-            return <PokeCard name={pokemon.name} url={pokemon.url} key={i} number={i+1} mostraModal={() => setModalShow(false)} />
+            return <PokeCard name={pokemon.name} url={pokemon.url} key={i} number={i+1} mostraModal={handleShowModal} />
          }) 
          }
-        { modalShow && <PokeModal name={} url={} number={} mostraModal={() => handleShowModal} /> }
+        { modalShow && <PokeModal name={value} /> }
 
          </div>
  

@@ -1,18 +1,19 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { ICardProps } from './PokeCard';
 import axios from 'axios';
 import React, { useEffect } from 'react';
 
+interface IPokeModalProps {
+    name: string;
+}
 
-
-function PokeModal(props:ICardProps) {
+function PokeModal(props:IPokeModalProps) {
     
     const [modal , setModal] = React.useState()
 
     useEffect(() => {
         axios
-        .get(props.url)
+        .get(`https://pokeapi.co/api/v2/pokemon/${props.name}`)
         .then((response) => {
             setModal(response.data)
         })

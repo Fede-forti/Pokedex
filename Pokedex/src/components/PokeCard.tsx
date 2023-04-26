@@ -5,7 +5,7 @@ export interface ICardProps {
   name: string;
   url: string;
   number: number;
-  mostraModal: () => void;
+  mostraModal: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 
@@ -19,7 +19,7 @@ const PokeCard = (props:ICardProps) => {
       <Card.Img variant="top" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${props.number}.png` }/>
       <Card.Body>
         <Card.Title style={{textTransform : "capitalize"}}>{props.name}</Card.Title>
-        <Button variant="primary" id={props.name} onClick={props.mostraModal}>Vedi dettagli</Button>
+        <Button variant="primary" id={props.name} onClick={() => props.mostraModal}>Vedi dettagli</Button>
       </Card.Body>
     </Card>
   );
